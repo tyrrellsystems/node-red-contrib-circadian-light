@@ -1,0 +1,56 @@
+<!--
+  Copyright 2016 IBM Corp.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<script type="text/x-red" data-template-name="Circadian Light">
+	<div class="form-row">
+        <label for="node-input-lat"><i class="fa fa-map"></i> Lat</label>
+        <input type="text" id="node-input-lat" >
+    </div>
+    <div class="form-row">
+        <label for="node-input-lon"><i class="fa fa-map"></i> Lon</label>
+        <input type="text" id="node-input-lon" >
+    </div>
+    <div class="form-row">
+        <label for="node-input-period"><i class="fa fa-clock"></i> Period</label>
+        <input type="text" id="node-input-period" >
+    </div>
+    <div class="form-row">
+    	<label for="node-input-topic"><i class="fa"></i> Topic</label>
+    	<input type="text" id="node-input-topic">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Temperature">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="Circadian Light">
+	<p></p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('Circadian Light',{
+    	category: 'Lighting',
+    	defaults: {
+    		lat: {value: 0.0},
+    		lon: {value: 0.0},
+    		period: {value: 5},
+    		topic: {},
+    		name: {}
+    	},
+    	outputs: 1,
+    	inputs: 0,
+    	label: function(){},
+    	color: 'yellow',
+    	icon: 'white-globe.png'
+    });
+</script>
