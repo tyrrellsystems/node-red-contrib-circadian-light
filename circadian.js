@@ -14,10 +14,9 @@
  * limitations under the License.
  **/
 
-"use strict";
-
 module.exports = function(RED) {
 
+	"use strict";
 	var suncalc = require('suncalc');
 
 	function circadianLight(n) {
@@ -31,8 +30,24 @@ module.exports = function(RED) {
 		var node = this;
 
 		function calcColourTemp() {
+
+			var times = suncalc.getTimes(new Date(),node.lat, node.lon);
+
+			var noonPos = suncalc.getPosition(times.solarNoon,node.lat,node.lon);
+
 			var pos = suncalc.getPosition(new Date(),node.lat, node.lon);
-			console.log(pos);
+
+			if (pos.altitude > 0) {
+				pos.percent = (pos.altitude / noonPos.altitude) * 100;
+			} else {
+				pos.percent = 0;
+			}
+
+			
+			node.send({
+				topic:node.topic,
+				payload:pos
+			});
 		};
 
 		this.interval = setInterval(calcColourTemp,(node.period * 60 * 1000));
