@@ -7,7 +7,7 @@
 ##Usage
 
 You set your lat/lon and the reporting interval then the node outputs a message 
-with the current possition of the sun and it's % of daily hight:
+with the current possition of the sun and it's % of daily maximum height:
 
 ```
 {
@@ -21,7 +21,7 @@ Where `azimuth` is the position of the Sun in radians  (direction along the
 horizon, measured from south to west), e.g. 0 is south and Math.PI * 3/4 is 
 northwest.
 
-`altitude` is the hight of the Sun above the horizon in radians. Where 0 is 
+`altitude` is the height of the Sun above the horizon in radians. Where 0 is 
 at the horizon and PI/2 is directly overhead.
 
 `percent` is how close the Sun is to it's highest position of the day, so 0%
